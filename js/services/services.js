@@ -10,7 +10,12 @@
 
   function coffeeService($http) {
     /*jshint validthis: true */
-    this.hello = 'hello!';
+    var vm = this;
+    const requestURL = 'https://coffees.herokuapp.com/coffee/';
+
+    vm.getAllCoffee = () => $http.get(requestURL);
+    vm.getOneCoffee = (id) => $http.get(`${requestURL}${id}`);
+
   }
 
 })();
