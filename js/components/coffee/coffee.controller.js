@@ -12,6 +12,18 @@
     /*jshint validthis: true */
     var vm = this;
 
+    vm.search = '';
+
+    //-- form --//
+    vm.form = false;
+    vm.showForm = () => { vm.form = !vm.form; };
+    vm.coffee = {};
+    vm.addCoffee = () => {
+      vm.coffees.push(vm.coffee);
+      vm.coffee = {};
+      vm.showForm();
+    };
+
     //-- coffees --//
     vm.coffees = [];
     coffeeService.getAllCoffee()
