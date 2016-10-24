@@ -12,8 +12,17 @@
     /*jshint validthis: true */
     var vm = this;
 
-    vm.greeting = 'coffee World!';
-    console.log(coffeeService.hello);
+    //-- coffees --//
+    vm.coffees = [];
+    coffeeService.getAllCoffee()
+    .then(data => vm.coffees = data.data.data)
+    .catch(err => console.log(err));
+
+    //-- single coffee --//
+    coffeeService.getOneCoffee(4)
+    .then(data => console.log(data.data.data))
+    .catch(err => console.log(err));
+
   }
 
 })();

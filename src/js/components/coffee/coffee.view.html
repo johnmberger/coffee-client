@@ -1,1 +1,43 @@
-<h1>{{coffeeCtrl.greeting}}</h1>
+<h1>Coffees</h1>
+<table class="table table-striped">
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Roaster
+    </th>
+    <th>
+      Origin
+    </th>
+    <th>
+      Price
+    </th>
+    <th>
+      Caffeine
+    </th>
+    <th>
+      Decaf
+    </th>
+  </tr>
+  <tr ng-repeat="coffee in coffeeCtrl.coffees">
+    <td>
+      {{coffee.name}}
+    </td>
+    <td>
+      {{coffee.roaster}}
+    </td>
+    <td>
+      {{coffee.origin}}
+    </td>
+    <td>
+      {{coffee.price | currency}}
+    </td>
+    <td>
+      {{coffee.caffeine}}
+    </td>
+    <td>
+      {{coffee.decaf}}
+    </td>
+  </tr>
+</table>
