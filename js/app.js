@@ -8,6 +8,7 @@
     .module('myApp', [
       'ngRoute',
       'myApp.config',
+      'myApp.services',
       'myApp.components.coffee'
     ]);
 
