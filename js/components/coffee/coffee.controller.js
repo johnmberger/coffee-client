@@ -19,7 +19,10 @@
     vm.showForm = () => { vm.form = !vm.form; };
     vm.coffee = {};
     vm.addCoffee = () => {
-      vm.coffees.push(vm.coffee);
+      coffeeService.addCoffee(vm.coffee)
+      .then(response => coffeeService.getAllCoffee())
+      .then(data => vm.coffees = data.data.data)
+      .catch(err => console.log(err));
       vm.coffee = {};
       vm.showForm();
     };
@@ -28,11 +31,6 @@
     vm.coffees = [];
     coffeeService.getAllCoffee()
     .then(data => vm.coffees = data.data.data)
-    .catch(err => console.log(err));
-
-    //-- single coffee --//
-    coffeeService.getOneCoffee(4)
-    .then(data => console.log(data.data.data))
     .catch(err => console.log(err));
 
   }
