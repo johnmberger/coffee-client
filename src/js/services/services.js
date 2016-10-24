@@ -15,6 +15,7 @@
 
     vm.getAllCoffee = () => $http.get(requestURL);
     vm.getOneCoffee = (id) => $http.get(`${requestURL}${id}`);
+    vm.addCoffee = (coffee) => $http.post(requestURL, coffee);
 
   }
 
